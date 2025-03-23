@@ -1,0 +1,33 @@
+digraph DER_Universidade {
+	A [label="ALUNO
+(RA, Nome, CPF, RG, Celular)"]
+	C [label="CURSO
+(Código, Nome, Período, Duração)"]
+	T [label="TURMA
+(Código, Nome, Código_Curso, Código_Disciplina)"]
+	D [label="DISCIPLINA
+(Código, Nome, Carga Horária)"]
+	P [label="PROFESSOR
+(Código, Nome, CPF)"]
+	TI [label="TITULAÇÃO
+(Código, Nome)"]
+	N [label="NOTAS_FALTAS
+(RA_Aluno, Código_Disciplina, Código_Turma, B1, B2, SUB, EXAME, Faltas)"]
+	M [label="MATRÍCULA" shape=diamond]
+	L [label=LECIONA shape=diamond]
+	PT [label="POSSUI_TITULAÇÃO" shape=diamond]
+	CD [label=CURSO_DISCIPLINA shape=diamond]
+	A -> M [label=1 dir=both]
+	M -> T [label=N dir=both]
+	T -> C [label=M dir=both]
+	T -> D [label=N dir=both]
+	D -> L [label=1 dir=both]
+	L -> P [label=N dir=both]
+	P -> PT [label=1 dir=both]
+	PT -> TI [label=N dir=both]
+	A -> N [label=1 dir=both]
+	D -> N [label=N dir=both]
+	T -> N [label=N dir=both]
+	C -> CD [label=1 dir=both]
+	CD -> D [label=N dir=both]
+}
